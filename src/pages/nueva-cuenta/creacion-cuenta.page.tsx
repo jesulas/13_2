@@ -13,10 +13,8 @@ const [tipe, setType] = React.useState<string>("");
         event.preventDefault()
         setAccount(
             {
-            
             name : nombre,
             type : tipe
-            
            }
         )
 
@@ -24,20 +22,21 @@ const [tipe, setType] = React.useState<string>("");
     }
 
     return (
-        <AppLayout>
+        <AppLayout> 
             <div>
                <h1>Movement List</h1> 
             </div>
             <form onSubmit={convertirCuenta}>
             <p>Tipo de cuenta:</p>
-            <select name="tQuery" required onChange={(e) => setNombre(e.target.value)} >
+            <select name="tQuery" required onChange ={(f) => setType(f.target.value)} value={tipe}>
+                <option value={"0"}>Escoge un tipo:</option>
                 <option value={"1"}>Tipo 1</option>
                 <option value={"2"}>Tipo 2</option>
                 <option value={"3"}>Tipo 3</option>
             </select>
             <p>Alias:</p>
-            <input name="nQuery" type="text" onChange={(f) => setType(f.target.value)}/>
-            <input type="submit" value="" required/>
+            <input name="nQuery" type="text" onChange={(e) => setNombre(e.target.value)} value={nombre}/>
+            <button type="submit" value="">Guardar</button>
             </form>
         </AppLayout>
     )  
