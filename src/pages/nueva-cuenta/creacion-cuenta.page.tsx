@@ -1,19 +1,23 @@
 import { AppLayout } from "@/layouts/app/app-layout";
-import React, { useState } from "react";
+import React from "react";
 import { Account } from "./creacion-cuenta.vm";
 import { SubidaCuenta } from "./creacion-subida";
 
 export const CreacionCuentaPage: React.FC = () => {
 
 const [account, setAccount] = React.useState<Account>({ type: "", name: ""});
-const [nombre, setNombre] = React.useState<String>("");
-const [tipe, setType] = React.useState<String>("");
+const [nombre, setNombre] = React.useState<string>("");
+const [tipe, setType] = React.useState<string>("");
 
     const convertirCuenta = (event: { preventDefault: () => void; }) => {
         event.preventDefault()
-        setAccount (
-            account.type= tipe,
-            account.name = nombre
+        setAccount(
+            {
+            
+            name : nombre,
+            type : tipe
+            
+           }
         )
 
         SubidaCuenta(account)
